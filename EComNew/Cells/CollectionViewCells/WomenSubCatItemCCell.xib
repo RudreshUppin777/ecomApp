@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="WomenSubCatItemCCell" customModule="EComNew" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="238" height="68"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="238" height="68"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UQz-Ho-wZP">
+                        <rect key="frame" x="5" y="5" width="228" height="58"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRh-rM-5F6">
+                                <rect key="frame" x="20" y="20.333333333333332" width="188" height="15.666666666666668"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hRh-rM-5F6" firstAttribute="leading" secondItem="UQz-Ho-wZP" secondAttribute="leading" constant="20" id="9ox-EZ-6cu"/>
+                            <constraint firstAttribute="trailing" secondItem="hRh-rM-5F6" secondAttribute="trailing" constant="20" id="f1M-jL-v8r"/>
+                            <constraint firstItem="hRh-rM-5F6" firstAttribute="centerY" secondItem="UQz-Ho-wZP" secondAttribute="centerY" constant="-1" id="y73-7s-cWn"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="UQz-Ho-wZP" secondAttribute="trailing" constant="5" id="1HH-ft-eEF"/>
+                <constraint firstItem="UQz-Ho-wZP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="5Up-YX-XUP"/>
+                <constraint firstAttribute="bottom" secondItem="UQz-Ho-wZP" secondAttribute="bottom" constant="5" id="bA3-G0-IpQ"/>
+                <constraint firstItem="UQz-Ho-wZP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="cOk-h5-wCz"/>
+            </constraints>
+            <size key="customSize" width="238" height="68"/>
+            <point key="canvasLocation" x="157.25190839694656" y="-4.9295774647887329"/>
+        </collectionViewCell>
+    </objects>
+</document>
