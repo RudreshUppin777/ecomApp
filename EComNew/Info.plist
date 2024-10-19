@@ -7,6 +7,10 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Metropolis-Black.otf</string>
+		<string>Metropolis-Regular.otf</string>
+		<string>Metropolis-Bold.otf</string>
+		<string>Metropolis-Medium.otf</string>
+		<string>Metropolis-SemiBold.otf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

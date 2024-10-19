@@ -13,18 +13,24 @@ enum InputType1 {
 }
 
 class SignInViewController: UIViewController ,ForgetPasswordDelegate{
+    @IBOutlet weak var emailLbl: UILabel!
+    @IBOutlet weak var notValidEmailLbl: UILabel!
+    @IBOutlet weak var passwordLbl: UILabel!
+    @IBOutlet weak var notValidPasswordLbl: UILabel!
+    @IBOutlet weak var signupOrSocialLbl: UILabel!
+    @IBOutlet weak var forgetPasswordLbl1: UILabel!
+    @IBOutlet weak var loginHeadingLbl: UILabel!
+    
+    @IBOutlet weak var loginBtn: UIButton!
     
     @IBOutlet weak var emailView: UIView!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var emailLbl: UILabel!
-    @IBOutlet weak var closeEmailImg: UIImageView!
-    @IBOutlet weak var notValidEmailLbl: UILabel!
-    
     @IBOutlet weak var passwordView: UIView!
+    
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var passwordLbl: UILabel!
+    @IBOutlet weak var emailTextField: UITextField!
+    
     @IBOutlet weak var closePasswordImg: UIImageView!
-    @IBOutlet weak var notValidPasswordLbl: UILabel!
+    @IBOutlet weak var closeEmailImg: UIImageView!
     
     @IBOutlet weak var emailTopConst: NSLayoutConstraint!
     @IBOutlet weak var passowrdTopConst: NSLayoutConstraint!
@@ -57,6 +63,7 @@ class SignInViewController: UIViewController ,ForgetPasswordDelegate{
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         navigationItem.hidesBackButton = true
+        clearTextFields()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -68,6 +75,7 @@ class SignInViewController: UIViewController ,ForgetPasswordDelegate{
         animateForgetPasswordView1()
     }
     
+    // MARK: - ---------------- Public Methods END ----------------
     
     // MARK: - ---------------- Private Methods ----------------
     
@@ -75,16 +83,33 @@ class SignInViewController: UIViewController ,ForgetPasswordDelegate{
         initialSetUp()
     }
     
-    @objc func tapCloseEmail() {
-        hideErrorElements(for: .email, textViewToRound: emailView, textField: emailTextField, textHide: "")
-    }
-    
-    @objc func tapClosePassword() {
-        hideErrorElements(for: .password, textViewToRound: passwordView, textField: passwordTextField, textHide: "")
-    }
-    
     private func initialSetUp() {
-        hideAllErrorElements()
+        
+        closeEmailImg.isHidden = true
+        closePasswordImg.isHidden = true
+        
+        emailLbl.isHidden = true
+        passwordLbl.isHidden = true
+        
+        notValidEmailLbl.isHidden = true
+        notValidPasswordLbl.isHidden = true
+        
+        emailTextField.text = ""
+        let style = TextFieldStyle(placeholder: ECOMAPP.ENTERTHEEMAIL,
+                                    placeholderColor: .darkGray, borderColor: .clear, errorState: .success)
+        emailTextField.styleTextField(style: style)
+        
+        
+        passwordTextField.text = ""
+        let style3 = TextFieldStyle(placeholder: ECOMAPP.ENTERTHEPASSWORD,
+                                    placeholderColor: .darkGray, borderColor: .clear, errorState: .success)     
+        passwordTextField.styleTextField(style: style3)
+        
+        emailView.styleRoundView( borderColor:.clear , borderWidth: 0.0)
+        passwordView.styleRoundView( borderColor:.clear , borderWidth: 0.0)
+        
+        
+        
         
         emailTextField.delegate = self
         emailTextField.textColor = .lightGray
@@ -102,116 +127,70 @@ class SignInViewController: UIViewController ,ForgetPasswordDelegate{
         let tapclosePasswordImg = UITapGestureRecognizer(target: self, action: #selector(tapClosePassword))
         closePasswordImg.isUserInteractionEnabled = true
         closePasswordImg.addGestureRecognizer(tapclosePasswordImg)
-
+        
         emailTopConst.constant = 10
         passowrdTopConst.constant = 10
-        
+        setUpAllFonts()
     }
     
-    private func hideAllErrorElements() {
-        
-        closeEmailImg.isHidden = true
-        closePasswordImg.isHidden = true
+    private func clearTextFields() {
+        emailTextField.text = ""
+        passwordTextField.text = ""
         
         emailLbl.isHidden = true
         passwordLbl.isHidden = true
+        closeEmailImg.isHidden = true
+        closePasswordImg.isHidden = true
         
-        notValidEmailLbl.isHidden = true
-        notValidPasswordLbl.isHidden = true
-        
-        let placeholderFont = UIFont.systemFont(ofSize: 14, weight: .regular)
-        emailTextField.text = ""
-        emailTextField.styleTextField(borderStyle: .none,
-                                      borderColor: .clear,
-                                      cornerRadius: 0.0,
-                                      borderWidth: 0.0,
-                                      placeholder: ECOMAPP.ENTERTHEEMAIL,
-                                      placeholderFont:placeholderFont,
-                                      placeholderColor: .darkGray)
-        
-        let passwordFont = UIFont.systemFont(ofSize: 14, weight: .regular)
-        passwordTextField.text = ""
-        passwordTextField.styleTextField(borderStyle: .none,
-                                         borderColor: .clear,
-                                         cornerRadius: 0.0,
-                                         borderWidth: 0.0,
-                                         placeholder: ECOMAPP.ENTERTHEPASSWORD,
-                                         placeholderFont:passwordFont,
-                                         placeholderColor: .darkGray)
-        emailView.styleRoundView( borderColor:.clear , borderWidth: 0.0)
-        passwordView.styleRoundView( borderColor:.clear , borderWidth: 0.0)
-        
+        emailTextField.isEnabled = false
+        passwordTextField.isEnabled = false
     }
-    
     private func showErrorElements(for inputType: InputType1, textViewToRound: UIView, textField: UITextField) {
         let colorError = UIColor.customBottomRed
         let placeholderFont = UIFont.systemFont(ofSize: 14, weight: .regular)
         switch inputType {
-       
+            
         case .email:
-            closeEmailImg.isHidden = false
-            closePasswordImg.isHidden = true
-            
-            emailLbl.isHidden = false
-            passwordLbl.isHidden = true
-            
             notValidEmailLbl.isHidden = false
             notValidPasswordLbl.isHidden = true
-            
-            closeEmailImg.image = UIImage(named: "closeRed")
             emailLbl.textColor = colorError
+            closeEmailImg.image = CustomImage.image(.CLOSERED)()
+            closeEmailImg.isHidden = false
+            let style = TextFieldStyle(placeholder: "",
+                                       placeholderColor: .clear, borderColor: .gray, errorState: .error)
             
-            emailTextField.styleTextField(borderStyle: .none,
-                                          borderColor: .gray,
-                                          cornerRadius: 0.0,
-                                          borderWidth: 0.0,
-                                          placeholder: "",
-                                          placeholderFont: placeholderFont,
-                                          placeholderColor: .clear)
+            emailTextField.styleTextField(style: style)
             emailView.styleRoundView( borderColor:colorError , borderWidth: 1.0)
             
         case .password:
-            closeEmailImg.isHidden = true
-            closePasswordImg.isHidden = false
-            
-            emailLbl.isHidden = true
-            passwordLbl.isHidden = false
             
             notValidEmailLbl.isHidden = true
             notValidPasswordLbl.isHidden = false
-            
-            closePasswordImg.image = UIImage(named: "closeRed")
             passwordLbl.textColor = colorError
+            closePasswordImg.image = CustomImage.image(.CLOSERED)()
+            closePasswordImg.isHidden = false
+            let style = TextFieldStyle(placeholder: "",
+                                       placeholderColor: .clear, borderColor: .gray, errorState: .error)
+            passwordTextField.styleTextField(style: style)
+            passwordView.styleRoundView(borderColor:colorError , borderWidth: 1.0)
             
-            passwordTextField.styleTextField(borderStyle: .none,
-                                             borderColor: .gray,
-                                             cornerRadius: 0.0,
-                                             borderWidth: 0.0,
-                                             placeholder: "",
-                                             placeholderFont: placeholderFont,
-                                             placeholderColor: .clear)
-            passwordView.styleRoundView( borderColor:colorError , borderWidth: 1.0)
         }
     }
     
     private func hideErrorElements(for inputType: InputType1, textViewToRound: UIView, textField: UITextField,textHide: String) {
         switch inputType {
-        
+            
         case .email:
             closeEmailImg.isHidden = true
             
             emailLbl.isHidden = true
             notValidEmailLbl.isHidden = true
             
-            let nameFont = UIFont.systemFont(ofSize: 14, weight: .regular)
             textField.text = textHide
-            textField.styleTextField(borderStyle: .none,
-                                     borderColor: .clear,
-                                     cornerRadius: 0.0,
-                                     borderWidth: 0.0,
-                                     placeholder: ECOMAPP.ENTERTHEEMAIL,
-                                     placeholderFont:nameFont,
-                                     placeholderColor: .darkGray)
+            let style = TextFieldStyle(placeholder: ECOMAPP.ENTERTHEEMAIL,
+                                       placeholderColor: .darkGray, borderColor: .clear, errorState: .success)
+        
+            textField.styleTextField(style: style)
             
             textViewToRound.styleRoundView(borderColor:.clear , borderWidth: 0.0)
         case .password:
@@ -220,15 +199,12 @@ class SignInViewController: UIViewController ,ForgetPasswordDelegate{
             passwordLbl.isHidden = true
             notValidPasswordLbl.isHidden = true
             
-            let nameFont = UIFont.systemFont(ofSize: 14, weight: .regular)
             textField.text = textHide
-            textField.styleTextField(borderStyle: .none,
-                                     borderColor: .clear,
-                                     cornerRadius: 0.0,
-                                     borderWidth: 0.0,
-                                     placeholder: ECOMAPP.ENTERTHEPASSWORD,
-                                     placeholderFont:nameFont,
-                                     placeholderColor: .darkGray)
+            let style = TextFieldStyle(placeholder: ECOMAPP.ENTERTHEPASSWORD,
+                                       placeholderColor: .darkGray, borderColor: .clear, errorState: .success)
+        
+            textField.styleTextField(style: style)
+            
             textViewToRound.styleRoundView(borderColor:.clear , borderWidth: 0.0)
         }
     }
@@ -258,33 +234,28 @@ class SignInViewController: UIViewController ,ForgetPasswordDelegate{
         })
     }
     
-    //    private func animateForgetPasswordView() {
-    //          let finalYPosition: CGFloat
-    //          let animationDuration: TimeInterval = 0.5
-    //
-    //          if isBottomViewVisible {
-    //              finalYPosition = self.viewHeight
-    //          } else {
-    //              finalYPosition = self.viewHeight-85
-    //          }
-    //
-    //          UIView.animate(withDuration: animationDuration,
-    //                         delay: 0,
-    //                         options: [.curveEaseOut],
-    //                         animations: {
-    //              self.bottomMenu.frame.origin.y = finalYPosition
-    //          }, completion: { _ in
-    //              self.isBottomViewVisible.toggle()
-    //          })
-    //      }
-    //
+    private func setUpAllFonts() {
+        loginHeadingLbl.font = CustomFont.bold.font(size: 34)
+        emailLbl.font = CustomFont.regular.font(size: 11)
+        passwordLbl.font = CustomFont.regular.font(size: 11)
+        notValidEmailLbl.font = CustomFont.regular.font(size: 11)
+        notValidPasswordLbl.font = CustomFont.regular.font(size: 11)
+        forgetPasswordLbl1.font = CustomFont.medium.font(size: 14)
+        signupOrSocialLbl.font = CustomFont.medium.font(size: 14)
+        loginBtn.titleLabel?.font =  CustomFont.medium.font(size: 14)
+    }
+    
+    // MARK: - ---------------- Private Methods END ----------------
+    @objc func tapCloseEmail() {
+        hideErrorElements(for: .email, textViewToRound: emailView, textField: emailTextField, textHide: "")
+    }
+    
+    @objc func tapClosePassword() {
+        hideErrorElements(for: .password, textViewToRound: passwordView, textField: passwordTextField, textHide: "")
+    }
+    
     
     // MARK: - ---------------- IBActions Methods ----------------
-    
-    
-    private func loadForgetPasswordView() {
-        
-    }
     
     @IBAction func forgetPasswordViewClicked(_ sender: UIButton) {
         animateForgetPasswordView1()
@@ -293,76 +264,104 @@ class SignInViewController: UIViewController ,ForgetPasswordDelegate{
     @IBAction func backActClicked(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
- 
+    
+    // MARK: - ---------------- IBActions Methods  END----------------
+    
 }
 
 
 extension SignInViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if textField == emailTextField {
-            if let email = emailTextField.text, email.isValidEmail() {
-                if  !passwordLbl.isHidden  {
-                    showAlert(message: ECOMAPP.ENTERTHETEXTFIELD)
-                    return false
-                }
-                else {
-                    return true
-                }
-            }
-            else {
-                if  !passwordLbl.isHidden {
-                    showAlert(message: ECOMAPP.ENTERTHETEXTFIELD)
-                    return false
-                }
-            }
+        switch textField {
+       
+        case emailTextField:
+            hideErrorElements(for: .email, textViewToRound: emailView, textField: emailTextField, textHide: emailTextField.text ?? "")
+            emailLbl.isHidden = false
+            emailLbl.textColor = UIColor.customBottomGray
+            passwordTextField.isEnabled = false
+            
+        case passwordTextField:
+            hideErrorElements(for: .password, textViewToRound: passwordView, textField: passwordTextField, textHide: passwordTextField.text ?? "" )
+            passwordLbl.isHidden = false
+            passwordLbl.textColor = UIColor.customBottomGray
+            emailTextField.isEnabled = false
+            
+        default:
+            break
         }
         
-        if textField == passwordTextField {
-            if let email = passwordTextField.text, email.isValidPassword() {
-                if  !emailLbl.isHidden  {
-                    showAlert(message: ECOMAPP.ENTERTHETEXTFIELD)
-                    return false
-                } else {
-                    return true
-                }
-            }
-            else {
-                if  !emailLbl.isHidden  {
-                    showAlert(message: ECOMAPP.ENTERTHETEXTFIELD)
-                    return false
-                }
-            }
-        }
-        
+        textField.placeholder = ""
+
         return true
     }
-    
+
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print("TextField did end editing")
-        
-        if textField == passwordTextField {
-            if let name = passwordTextField.text, name.isValidPassword() {
-                hideErrorElements(for: .password, textViewToRound: passwordView, textField: passwordTextField, textHide: passwordTextField.text ?? "")
+        switch textField {
+        case emailTextField:
+            guard let email = emailTextField.text else { return }
+            if email.isValidEmail() {
+                closeEmailImg.image = CustomImage.OKGREEN.image()
+                closeEmailImg.accessibilityIdentifier = CustomImage.OKGREEN.rawValue
+                hideErrorElements(for: .email, textViewToRound: emailView, textField: emailTextField, textHide: email)
+                closeEmailImg.isHidden = false
+                emailLbl.textColor = UIColor.customBottomGray
+                emailLbl.isHidden = false
+                passwordTextField.isEnabled = true
+                
             } else {
-                if  emailLbl.isHidden {
+                if !emailTextField.text!.isEmpty {
+                    showErrorElements(for: .email, textViewToRound: emailView, textField: emailTextField)
+                    passwordTextField.isEnabled = false
+                }
+            }
+        case passwordTextField:
+            guard let password = passwordTextField.text else { return }
+            if  password.isValidPassword() {
+                closePasswordImg.image = CustomImage.OKGREEN.image()
+                closePasswordImg.accessibilityIdentifier = CustomImage.OKGREEN.rawValue
+                hideErrorElements(for: .password, textViewToRound: passwordView, textField: passwordTextField, textHide: password)
+                passwordLbl.isHidden = false
+                passwordLbl.textColor = UIColor.customBottomGray
+                closePasswordImg.isHidden = false
+            } else {
+                if !passwordTextField.text!.isEmpty {
                     showErrorElements(for: .password, textViewToRound: passwordView, textField: passwordTextField)
                 }
             }
-        } else if textField == emailTextField {
-            if let email = emailTextField.text, email.isValidEmail() {
-                hideErrorElements(for: .email, textViewToRound: emailView, textField: emailTextField, textHide: emailTextField.text ?? "")
-                
-            } else {
-                if  passwordLbl.isHidden {
-                    showErrorElements(for: .email, textViewToRound: emailView, textField: emailTextField)
-                }
-            }
-            
+        default:
+            break
         }
     }
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
+        var isValid = true
+
+        switch textField {
+
+        case emailTextField:
+            if !emailTextField.text!.isValidEmail() {
+                showErrorElements(for: .email, textViewToRound: emailView, textField: emailTextField)
+                showAlert(message: ECOMAPP.VALIDEMAIL)
+                isValid = false
+                passwordTextField.isEnabled = false
+            }
+
+        case passwordTextField:
+            if !passwordTextField.text!.isValidPassword() {
+                notValidPasswordLbl.isHidden = false
+                showAlert(message: ECOMAPP.VALIDPASSWORD)
+                isValid = false
+            }
+
+        default:
+            break
+        }
+
+        if isValid {
+            textField.resignFirstResponder()
+        }
+
+        return isValid
     }
+
 }

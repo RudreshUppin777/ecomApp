@@ -9,7 +9,8 @@ import UIKit
 import NVActivityIndicatorView
 
 class BagViewController: UIViewController {
-   
+    weak var delegate: ChildViewControllerDelegate?
+
     private var indicatorView: NVActivityIndicatorView?
     private var comingSoonLabel: UILabel?
     // Create an instance of CustomRingLoader

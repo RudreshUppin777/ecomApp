@@ -1,27 +1,27 @@
+////
+////  RoundedCornerView.swift
+////  EComNew
+////
+////  Created by Way2 on 28/06/24.
+////
 //
-//  RoundedCornerView.swift
-//  EComNew
+//import Foundation
+//import UIKit
 //
-//  Created by Way2 on 28/06/24.
+//@IBDesignable
+//class RoundedCornerView: UIView {
 //
-
-import Foundation
-import UIKit
-
-@IBDesignable
-class RoundedCornerView: UIView {
-
-    @IBInspectable var cornerRadius: CGFloat = 0 {
-        didSet {
-            self.layer.cornerRadius = cornerRadius
-            self.layer.masksToBounds = cornerRadius > 0
-        }
-    }
-
-    override func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-        self.layer.cornerRadius = cornerRadius
-        self.layer.masksToBounds = cornerRadius > 0
-    }
-}
-
+//    @IBInspectable var cornerRadius: CGFloat = 0 {
+//        didSet {
+//            self.layer.cornerRadius = cornerRadius
+//            self.layer.masksToBounds = cornerRadius > 0
+//        }
+//    }
+//
+//    override func prepareForInterfaceBuilder() {
+//        super.prepareForInterfaceBuilder()
+//        self.layer.cornerRadius = cornerRadius
+//        self.layer.masksToBounds = cornerRadius > 0
+//    }
+//}
+//

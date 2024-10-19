@@ -59,6 +59,18 @@ extension UIView {
             mask.path = path.cgPath
             layer.mask = mask
         }
-    
+ 
+    func setAttributedText(for label: UILabel, text: String, font: UIFont, lineHeight: CGFloat) {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineHeightMultiple = lineHeight 
+            
+            let attributes: [NSAttributedString.Key: Any] = [
+                .font: font,
+                .paragraphStyle: paragraphStyle
+            ]
+            
+            let attributedString = NSAttributedString(string: text, attributes: attributes)
+            label.attributedText = attributedString
+        }
 }
 

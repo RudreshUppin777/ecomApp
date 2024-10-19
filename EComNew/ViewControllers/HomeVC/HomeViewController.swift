@@ -7,8 +7,9 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
-       
+class HomeViewController: UIViewController {
+    weak var delegate: ChildViewControllerDelegate?
+
     @IBOutlet weak var saleClothsCollectionView: UICollectionView!
     @IBOutlet weak var newsClothsCollectionView: UICollectionView!
     
@@ -53,7 +54,7 @@ class MainViewController: UIViewController {
 
 }
 
-extension MainViewController: UICollectionViewDataSource {
+extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == saleClothsCollectionView {
@@ -82,7 +83,7 @@ extension MainViewController: UICollectionViewDataSource {
     }
 }
 
-extension MainViewController: UICollectionViewDelegate {
+extension HomeViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == saleClothsCollectionView {
@@ -93,7 +94,7 @@ extension MainViewController: UICollectionViewDelegate {
     }
 }
 
-extension MainViewController: UICollectionViewDelegateFlowLayout {
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == saleClothsCollectionView {

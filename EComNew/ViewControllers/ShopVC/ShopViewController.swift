@@ -8,7 +8,8 @@
 import UIKit
 
 class ShopViewController: UIViewController, WomenCatViewDelegate {
-    
+    weak var delegate: ChildViewControllerDelegate?
+  
     @IBOutlet weak var buttonStackView: UIStackView!
     @IBOutlet weak var womenButton: UIButton!
     @IBOutlet weak var menButton: UIButton!
@@ -69,8 +70,19 @@ class ShopViewController: UIViewController, WomenCatViewDelegate {
         }
     }
     
-    // MARK: - ---------------- IBActions Methods ----------------
+    func showVisualSearchViewController() {
+        
+        if let visualsearchvc: VisualSearchViewController = UIStoryboard.instantiateViewController(storyboardName: "Main", identifier: ECOMAPP.VC.VISUALSEARCHVC) {
+                   self.navigationController?.pushViewController(visualsearchvc, animated: true)
+        }
+    }
     
+    // MARK: - ---------------- IBActions Methods ----------------
+ 
+    
+    @IBAction func visualSearchAct(_ sender: UIButton) {
+        delegate?.didPerformAction(in: self)
+    }
     @IBAction func buttonTapped(_ sender: UIButton) {
         let selectedIndex: Int
         selectedIndex = 0

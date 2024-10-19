@@ -76,10 +76,10 @@ class BottomMenuView: UIView {
         // Reset all labels to inactive color
         let labels = [homeLbl, shopLbl, bagLbl, favouriteLbl, profileLbl]
         labels.forEach { $0?.textColor = inactiveColor }
-
-        homeImgView.image = UIImage(named: "inactiveHome")
-        cartImgView.image = UIImage(named: "inactiveCart")
-        bagImgView.image = UIImage(named: "inactiveBag")
+        
+        homeImgView.image = UIImage(named: CustomImage.INACTIVEHOME.rawValue)
+        cartImgView.image = UIImage(named: CustomImage.INACTIVECART.rawValue)
+        bagImgView.image = UIImage(named: CustomImage.INACTIVEBAG.rawValue)
         favImgView.image = UIImage(named: "inactiveHeart")
         profileImgView.image = UIImage(named: "inactiveProfile")
                

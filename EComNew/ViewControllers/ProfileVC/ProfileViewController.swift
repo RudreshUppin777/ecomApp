@@ -10,7 +10,8 @@ import UIKit
 class ProfileViewController: UIViewController {
     let profileItemViewModal = ProfileItemViewModal()
     @IBOutlet weak var profileViewtableView: UITableView!
-    
+    weak var delegate: ChildViewControllerDelegate?
+
     // MARK: - ---------------- View LifeCycle Methods ----------------
     
     override func viewDidLoad() {

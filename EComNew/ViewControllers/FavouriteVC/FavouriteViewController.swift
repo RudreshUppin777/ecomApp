@@ -9,6 +9,8 @@ import UIKit
 import NVActivityIndicatorView
 
 class FavouriteViewController: UIViewController {
+    weak var delegate: ChildViewControllerDelegate?
+
     //let favItemViewModal = FavItemViewModal()
     private var indicatorView: NVActivityIndicatorView?
     private var comingSoonLabel: UILabel?

@@ -24,8 +24,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         
-        if let mainViewController: SignUpViewController = UIStoryboard.instantiateViewController(storyboardName: "Main", identifier: "SignUpViewController") {
-            let navigationController = UINavigationController(rootViewController: mainViewController)
+        if let firstVC: SignUpViewController = UIStoryboard.instantiateViewController(storyboardName: "Main", identifier: "SignUpViewController") {
+            let navigationController = UINavigationController(rootViewController: firstVC)
             navigationController.isNavigationBarHidden = true
             window?.rootViewController = navigationController
             window?.makeKeyAndVisible()

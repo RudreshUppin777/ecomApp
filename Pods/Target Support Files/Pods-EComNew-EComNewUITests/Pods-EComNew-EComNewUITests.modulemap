@@ -1,0 +1,6 @@
+framework module Pods_EComNew_EComNewUITests {
+  umbrella header "Pods-EComNew-EComNewUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

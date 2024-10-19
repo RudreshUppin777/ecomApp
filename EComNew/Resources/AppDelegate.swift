@@ -15,23 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         UINavigationBar.appearance().barTintColor = .white
         UITabBar.appearance().barTintColor = .white
-        let fontFamilyNames = UIFont.familyNames
-                
-                // Iterate through each font family
-                for family in fontFamilyNames {
-                    print(family) // Print the family name
-                    
-                    // Get the font names for the current family
-                    let fontNames = UIFont.fontNames(forFamilyName: family)
-                    for name in fontNames {
-                        print("== \(name)") // Print the font names
-                    }
-                }
-        if let customFont = UIFont(name: "Metropolis-Black", size: 17) {
-            print("Custom font loaded successfully: \(customFont)")
-        } else {
-            print("Failed to load custom font.")
-        }
 
         return true
     }
