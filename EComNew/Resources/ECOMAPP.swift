@@ -10,13 +10,14 @@ import Foundation
 enum ECOMAPP {
     enum VC {
         static let SIGNIN = "SignInViewController"
+        static let SIGNUP = "SignUpViewController"
 
         static let MAINVC = "MainViewController"
         static let HOMEVC = "HomeViewController"
         static let SHOPVC = "ShopViewController"
         static let BAGVC = "BagViewController"
         static let FAVVC = "FavouriteViewController"
-        static let PROFILEVC = "ProfileViewController"
+        static let PROFILEVC = "ProfileSetViewController"
         static let MYORDER = "MyOrderViewController"
         static let SHOPITMECART = "ShopItemsCatViewController"
         static let VISUALSEARCHVC = "VisualSearchViewController"
@@ -30,7 +31,6 @@ enum ECOMAPP {
     enum TCELLNAME {
         static let SHOPITEM = "ShopItemsTableViewCell"
         static let SUBCATITEMS = "SubCatItemsTableViewCell"
-        static let PROFILEITEM = "ProfileItemTableViewCell"
     }
     
     enum VIEW {
@@ -43,6 +43,12 @@ enum ECOMAPP {
             static let REDVIEW = "RedView"
             static let MENCAT = "MenCatView"
             static let KIDSCAT = "KidsCatView"
+        }
+        
+        enum PROFILEVC {
+            static let ORDERDETAIL = "OrderDetailsTableViewCell"
+            static let PROFILEITEM = "ProfileItemTableViewCell"
+
         }
     }
     

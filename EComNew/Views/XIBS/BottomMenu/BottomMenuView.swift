@@ -15,14 +15,14 @@ enum BottomMenuStates: String {
     case profile = "Profile"
 }
 
-protocol BottomMenuViewDelegate: AnyObject {
-    func didTapHomeViewController(_ state: BottomMenuStates)
+protocol BottomMenuDelegateFromHomeVC: AnyObject {
+    func didSelectMenuItem(at index: Int)
 }
 
 class BottomMenuView: UIView {
   
     var view: UIView!
-    weak var delegate: BottomMenuViewDelegate?
+    weak var delegateFromHomeVc: BottomMenuDelegateFromHomeVC?
 
     @IBOutlet weak var homeImgView: UIImageView!
     @IBOutlet weak var cartImgView: UIImageView!
@@ -70,6 +70,12 @@ class BottomMenuView: UIView {
     }
     
     private func setUpTitleColor(for state: BottomMenuStates) {
+        homeLbl.font = CustomFont.regular.font(size: 10)
+        shopLbl.font = CustomFont.regular.font(size: 10)
+        bagLbl.font = CustomFont.regular.font(size: 10)
+        favouriteLbl.font = CustomFont.regular.font(size: 10)
+        profileLbl.font = CustomFont.regular.font(size: 10)
+        
         let inactiveColor = UIColor.customBottomGray
         let activeColor = UIColor.customBottomRed
         
@@ -80,30 +86,30 @@ class BottomMenuView: UIView {
         homeImgView.image = UIImage(named: CustomImage.INACTIVEHOME.rawValue)
         cartImgView.image = UIImage(named: CustomImage.INACTIVECART.rawValue)
         bagImgView.image = UIImage(named: CustomImage.INACTIVEBAG.rawValue)
-        favImgView.image = UIImage(named: "inactiveHeart")
-        profileImgView.image = UIImage(named: "inactiveProfile")
-               
+        favImgView.image =    UIImage(named: CustomImage.INACTIVEHEART.rawValue)
+        profileImgView.image =  UIImage(named:CustomImage.INACTIVEPROFILE.rawValue)
+
         switch state {
         case .home:
             homeLbl.textColor = activeColor
-            homeImgView.image = UIImage(named: "activeHome")
-            delegate?.didTapHomeViewController(.home)
+            homeImgView.image =  UIImage(named:CustomImage.ACTIVEHOME.rawValue)
+            delegateFromHomeVc?.didSelectMenuItem(at: 1)
         case .shop:
             shopLbl.textColor = activeColor
-            cartImgView.image = UIImage(named: "activeCart")
-            delegate?.didTapHomeViewController(.shop)
+            cartImgView.image =  UIImage(named:CustomImage.ACTIVECART.rawValue)
+            delegateFromHomeVc?.didSelectMenuItem(at: 2)
         case .bag:
             bagLbl.textColor = activeColor
-            bagImgView.image = UIImage(named: "activeBag")
-            delegate?.didTapHomeViewController(.bag)
+            bagImgView.image =   UIImage(named:CustomImage.ACTIVEBAG.rawValue)
+            delegateFromHomeVc?.didSelectMenuItem(at: 3)
         case .favourite:
             favouriteLbl.textColor = activeColor
-            favImgView.image = UIImage(named: "activeHeart")
-            delegate?.didTapHomeViewController(.favourite)
+            favImgView.image = UIImage(named:CustomImage.ACTIVEHEART.rawValue)
+            delegateFromHomeVc?.didSelectMenuItem(at: 4)
         case .profile:
             profileLbl.textColor = activeColor
-            profileImgView.image = UIImage(named: "activeProfile")
-            delegate?.didTapHomeViewController(.profile)
+            profileImgView.image =  UIImage(named:CustomImage.ACTIVEPROFILE.rawValue)
+            delegateFromHomeVc?.didSelectMenuItem(at: 5)
         }
     }
 
@@ -130,5 +136,6 @@ class BottomMenuView: UIView {
     @IBAction func profileBtnAction(_ sender: UIButton) {
         setUpTitleColor(for: .profile)
     }
-    
+ 
+ 
 }

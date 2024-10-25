@@ -92,7 +92,7 @@ class CategoryView: UIView {
         mensCatView.frame = view.bounds
         mensCatView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(mensCatView)
-        commingSoonLbl1.isHidden = true
+       // commingSoonLbl1.isHidden = true
         setupLoader(for: mensCatView, main: view)
     }
     
@@ -110,7 +110,7 @@ class CategoryView: UIView {
         kidsCatView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         kidsCatView.frame = view.bounds
         view.addSubview(kidsCatView)
-        commingSoonLbl2.isHidden = true
+      //  commingSoonLbl2.isHidden = true
         setupLoader(for: kidsCatView, main: view)
     }
     private func setupLoader() {
@@ -148,9 +148,9 @@ class CategoryView: UIView {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
             self?.stopLoading()
             if (childview == self?.kidsCatView){
-                self?.commingSoonLbl2.isHidden = false
+              //  self?.commingSoonLbl2.isHidden = false
             } else if (childview == self?.mensCatView){
-                self?.commingSoonLbl1.isHidden = false
+               // self?.commingSoonLbl1.isHidden = false
             }
             else if (childview == self?.womensCatView){
                 self?.womensCatView.isHidden = false

@@ -75,6 +75,7 @@ class SignInViewController: UIViewController ,ForgetPasswordDelegate{
         animateForgetPasswordView1()
     }
     
+    
     // MARK: - ---------------- Public Methods END ----------------
     
     // MARK: - ---------------- Private Methods ----------------

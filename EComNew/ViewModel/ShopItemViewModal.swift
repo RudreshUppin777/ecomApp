@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 class ShopItemViewModal {
     
     var shopItems: [ShopItem] = []
@@ -71,4 +72,6 @@ class ShopItemViewModal {
     func kidsSubCatItems(at index: Int) -> ShopKidsSubCatItems {
         return shopKidsSubCatItems[index]
     }
+    
 }
+

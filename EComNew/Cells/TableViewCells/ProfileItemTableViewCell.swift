@@ -11,7 +11,7 @@ class ProfileItemTableViewCell: UITableViewCell {
 
     @IBOutlet weak var profileItemName: UILabel!
     @IBOutlet weak var profileItemSubTitle: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,5 +30,7 @@ class ProfileItemTableViewCell: UITableViewCell {
     func loadCellData(_ item: ProfileItems) {
         self.profileItemName.text = item.name
         self.profileItemSubTitle.text = item.subCatTitle
+        profileItemName.font = CustomFont.semibold.font(size: 16)
+        profileItemSubTitle.font = CustomFont.regular.font(size: 11)
     }
 }

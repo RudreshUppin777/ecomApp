@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         
-        if let firstVC: SignUpViewController = UIStoryboard.instantiateViewController(storyboardName: "Main", identifier: "SignUpViewController") {
+        if let firstVC: SignUpViewController = UIStoryboard.instantiateViewController(storyboardName: "Main", identifier: ECOMAPP.VC.SIGNUP) {
             let navigationController = UINavigationController(rootViewController: firstVC)
             navigationController.isNavigationBarHidden = true
             window?.rootViewController = navigationController

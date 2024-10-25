@@ -2,19 +2,19 @@
 //  FavouriteViewController.swift
 //  EComNew
 //
-//  Created by Way2 on 01/07/24.
+//  Created by Way2 on 24/10/24.
 //
+
+import UIKit
 
 import UIKit
 import NVActivityIndicatorView
 
 class FavouriteViewController: UIViewController {
-    weak var delegate: ChildViewControllerDelegate?
 
     //let favItemViewModal = FavItemViewModal()
     private var indicatorView: NVActivityIndicatorView?
     private var comingSoonLabel: UILabel?
-    // Create an instance of CustomRingLoader
     private var loader: CustomRingLoader!
 
     // MARK: - ---------------- View LifeCycle Methods ----------------
@@ -76,7 +76,7 @@ class FavouriteViewController: UIViewController {
 //        profileViewtableView.delegate = self
 //        profileViewtableView.dataSource = self
 //        self.profileViewtableView.register(UINib(nibName: ECOMAPP.TCELLNAME.PROFILEITEM, bundle: nil), forCellReuseIdentifier: ECOMAPP.TCELLNAME.PROFILEITEM)
-//        
+//
 //        if #available(iOS 15, *) {
 //            profileViewtableView.sectionHeaderTopPadding = 0
 //        }
@@ -88,7 +88,7 @@ class FavouriteViewController: UIViewController {
 //    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return profileItemViewModal.numberOfItems()
 //    }
-//    
+//
 //    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        guard let cell = tableView.dequeueReusableCell(withIdentifier: ECOMAPP.TCELLNAME.PROFILEITEM) as? ProfileItemTableViewCell else {
 //            fatalError(ECOMAPP.CELLLOADERROR)
@@ -97,7 +97,7 @@ class FavouriteViewController: UIViewController {
 //        cell.loadCellData(item)
 //        return cell
 //    }
-//    
+//
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return 100.0
 //    }

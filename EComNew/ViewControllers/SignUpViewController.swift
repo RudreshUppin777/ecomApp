@@ -12,7 +12,7 @@ enum InputType {
     case password
 }
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController ,UIGestureRecognizerDelegate{
     
     @IBOutlet weak var signUpLbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
@@ -23,6 +23,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var notValidPasswordLbl: UILabel!
     @IBOutlet weak var alreadyHaveAcntLbl: UILabel!
     @IBOutlet weak var signUpBtn: UIButton!
+    @IBOutlet weak var signUpview: UIView!
     @IBOutlet weak var signupOrSocialLbl: UILabel!
     
     @IBOutlet weak var nameView: UIView!
@@ -70,6 +71,10 @@ class SignUpViewController: UIViewController {
     
     private func setUpViews() {
         initialSetUp()
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
     
     private func initialSetUp() {
@@ -144,6 +149,7 @@ class SignUpViewController: UIViewController {
         topConst1.constant = -5
         topConst2.constant = -5
         
+  
     }
     
     private func setUpAllFonts() {
@@ -156,7 +162,7 @@ class SignUpViewController: UIViewController {
         notValidPasswordLbl.font = CustomFont.regular.font(size: 11)
         alreadyHaveAcntLbl.font = CustomFont.medium.font(size: 14)
         signupOrSocialLbl.font = CustomFont.medium.font(size: 14)
-        signUpBtn.titleLabel?.font = CustomFont.medium.font(size: 14)
+        //signUpBtn.titleLabel?.font = CustomFont.medium.font(size: 14)
         
     }
     
@@ -251,21 +257,25 @@ class SignUpViewController: UIViewController {
     // MARK: - ---------------- IBActions Methods ----------------
     
     @IBAction func alreadyAcounutActClick(_ sender: UIButton) {
+       
+        
         if let signinVC: SignInViewController = UIStoryboard.instantiateViewController(storyboardName: "Main", identifier: ECOMAPP.VC.SIGNIN) {
             self.navigationController?.pushViewController(signinVC, animated: true)
         }
     }
     
-    @IBAction func signUpActClick(_ sender: UIButton) {
-        if let homevc: MainViewController = UIStoryboard.instantiateViewController(storyboardName: "Main", identifier: ECOMAPP.VC.MAINVC) {
+    @IBAction func signUpClick(_ sender: Any) {
+        if let homevc: HomeViewController = UIStoryboard.instantiateViewController(storyboardName: "Main", identifier: ECOMAPP.VC.HOMEVC) {
             self.navigationController?.pushViewController(homevc, animated: true)
         }
     }
     
     @IBAction func googleActClick(_ sender: UIButton) {
+   
     }
     
     @IBAction func fbActClick(_ sender: UIButton) {
+  
     }
     
     private func showErrorElements(for inputType: InputType, textViewToRound: UIView, textField: UITextField) {

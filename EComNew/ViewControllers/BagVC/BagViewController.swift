@@ -2,14 +2,14 @@
 //  BagViewController.swift
 //  EComNew
 //
-//  Created by Way2 on 01/07/24.
+//  Created by Way2 on 22/10/24.
 //
 
 import UIKit
 import NVActivityIndicatorView
 
 class BagViewController: UIViewController {
-    weak var delegate: ChildViewControllerDelegate?
+   // weak var delegate: ChildViewControllerDelegate?
 
     private var indicatorView: NVActivityIndicatorView?
     private var comingSoonLabel: UILabel?
@@ -79,8 +79,5 @@ class BagViewController: UIViewController {
         loader.removeFromSuperview()
     }
     // MARK: - ---------------- IBActions Methods ----------------
-    
-    
-
 }
 
