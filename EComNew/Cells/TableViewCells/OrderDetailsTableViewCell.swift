@@ -30,9 +30,17 @@ class OrderDetailsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-   
-    public func loadCellData(_ item: ProfileItems) {
-        statusLabl.text = "Delivered"
+
+    public func loadCellData( actionType: ActionType, indexPath: IndexPath) {
+        if (actionType == .delivered) {
+            statusLabl.text = "Delivered"
+        }
+        if (actionType == .processing) {
+            statusLabl.text = "Processing"
+        }
+        if (actionType == .canceled) {
+            statusLabl.text = "Cancled"
+        }
         orderNumbLbl.text = " Order №1947034"
         trakingNumLbl1.text = "Tracking Number:"
         trakingNumLbl.text = "1122222"
@@ -52,7 +60,7 @@ class OrderDetailsTableViewCell: UITableViewCell {
         totalAmountLbl1.font = CustomFont.medium.font(size: 14)
         quantityLbl1.font = CustomFont.medium.font(size: 14)
         quantityLbl.font = CustomFont.semibold.font(size: 16)
-
+                
     }
     
 }

@@ -13,7 +13,6 @@ extension UIColor {
     static let customBottomRed = UIColor(red: 219/255, green: 48/255, blue: 34/255, alpha: 1.0)
     static let customBottomGray = UIColor(red: 155/255, green: 155/255, blue: 155/255, alpha: 1.0)
     static let customBlack = UIColor(red: 34/255, green: 34/255, blue: 34/255, alpha: 1.0)
-
 }
 
 

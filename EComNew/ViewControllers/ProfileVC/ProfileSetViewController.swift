@@ -66,7 +66,38 @@ class ProfileSetViewController: UIViewController {
     @IBOutlet weak var bottomSheetForgetPassword: UIView!
     private var isPasswordChangeViewVisible = false
     @IBOutlet weak var settingsTitle: UILabel!
+    @IBOutlet weak var personaleInfoLbl: UILabel!
+    @IBOutlet weak var fullNameLbl: UILabel!
+    @IBOutlet weak var nameErrorLbl: UILabel!
+    @IBOutlet weak var fullnameTextField: UITextField!
+    @IBOutlet weak var dobLbl: UILabel!
+    @IBOutlet weak var doberrorLbl: UILabel!
+    @IBOutlet weak var dobTextField: UITextField!
+    @IBOutlet weak var passwordTitleLbl: UILabel!
+    @IBOutlet weak var passwordLbl: UILabel!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passworderrorLbl: UILabel!
+    @IBOutlet weak var notificationTitle: UILabel!
+    @IBOutlet weak var salesLbl: UILabel!
+    @IBOutlet weak var newarrivalLbl: UILabel!
+    @IBOutlet weak var deliveryStatusLbl: UILabel!
+    @IBOutlet weak var salesSwicth: UISwitch!
+    @IBOutlet weak var newArrivalSwicth: UISwitch!
+    @IBOutlet weak var deliveryStatusSwicth: UISwitch!
     
+    
+    // MARK: - ---------------- PasswordChangeview ----------------
+
+    @IBOutlet weak var passwordLblTitle: UILabel!
+    @IBOutlet weak var oldPasswordLbl: UILabel!
+    @IBOutlet weak var forgetPasswordBtn: UIButton!
+    @IBOutlet weak var oldPasswordTextField: UITextField!
+    @IBOutlet weak var newPasswordLbl: UILabel!
+    @IBOutlet weak var newPasswordTextField: UITextField!
+    @IBOutlet weak var repeatnewPasswordLbl: UILabel!
+    @IBOutlet weak var repeatnewPasswordTextField: UITextField!
+
+    @IBOutlet weak var savepasswordBtn: UIButton!
     // MARK: - ---------------- CommingSoon ----------------
     
     @IBOutlet var commingSoon: UIView!
@@ -74,7 +105,8 @@ class ProfileSetViewController: UIViewController {
     // MARK: - ---------------- Variables ----------------
     
     var profileItemViewModal = ProfileItemViewModal()
-    
+    var actionTypeMainVar: ActionType = .delivered
+
     // MARK: - ---------------- View LifeCycle Methods ----------------
    
     
@@ -225,15 +257,17 @@ class ProfileSetViewController: UIViewController {
         case .delivered:
             deliveredView.backgroundColor = UIColor.customBlack
             deliveredLbl.textColor = UIColor.white
-            
+            actionTypeMainVar = .delivered
         case .processing:
             processsingView.backgroundColor = UIColor.customBlack
             processingLbl.textColor = UIColor.white
-            
+            actionTypeMainVar = .processing
         case .canceled:
             cancledView.backgroundColor = UIColor.customBlack
             cancledLbl.textColor = UIColor.white
+            actionTypeMainVar = .canceled
         }
+        self.myOrderListTableView.reloadData()
     }
     
     // MARK: - ---------------- MyOrder View  End----------------
@@ -246,48 +280,13 @@ class ProfileSetViewController: UIViewController {
     }
     
     private func setUpOrderDetailsView() {
-//        orderDetailsTitle.font = CustomFont.semibold.font(size: 18)
-//
-//        orderNumbLbl.font = CustomFont.semibold.font(size: 16)
-//        dateLbl.font = CustomFont.medium.font(size: 14)
-//        trakingNumLbl1.font = CustomFont.regular.font(size: 14)
-//        trakingNumLbl.font = CustomFont.regular.font(size: 14)
-//        statusLabl.font = CustomFont.medium.font(size: 14)
-//        quantityLbl.font = CustomFont.medium.font(size: 14)
-//        
-//        orderinfoLbl.font = CustomFont.medium.font(size: 14)
-//        shippingLbl.font = CustomFont.medium.font(size: 14)
-//        paymentModeLbl.font = CustomFont.medium.font(size: 14)
-//        deliveryModeLbl.font = CustomFont.medium.font(size: 14)
-//        discountLbl.font = CustomFont.medium.font(size: 14)
-//        totalAmountLbl.font = CustomFont.medium.font(size: 14)
-//        
-//        shippingLbl1.font = CustomFont.regular.font(size: 14)
-//        paymentModeLbl1.font = CustomFont.regular.font(size: 14)
-//        deliveryModeLbl1.font = CustomFont.regular.font(size: 14)
-//        discountLbl1.font = CustomFont.regular.font(size: 14)
-//        totalAmountLbl1.font = CustomFont.regular.font(size: 14)
-//        
-        
-    
-        
-        
         orderDetailsView.frame = CGRect(x: viewWidth, y: 0, width: viewWidth, height: viewHeight)
-        orderDetailsView.addToKeyWindow() // Add to the key window
+        orderDetailsView.addToKeyWindow()
         
         // Animate the transition to the original position
         UIView.animate(withDuration: 0.5, animations: {
             self.orderDetailsView.frame.origin.x = 0
         })
-        
-        
-        //        orderDetailsTableView.delegate = self
-        //        orderDetailsTableView.dataSource = self
-        
-        //        self.orderDetailsTableView.register(UINib(nibName: , bundle: nil), forCellReuseIdentifier: )
-        //        orderDetailsTableView.showsVerticalScrollIndicator = false
-        //        orderDetailsTableView.showsHorizontalScrollIndicator = false
-        //        orderDetailsTableView.reloadData()
         
     }
     
@@ -333,7 +332,6 @@ class ProfileSetViewController: UIViewController {
     }
     
     private func setUpSettingsView() {
-        //settingsTitle.font = CustomFont.bold.font(size: 34)
         settingsView1.frame = CGRect(x: viewWidth, y: 0, width: viewWidth, height: viewHeight)
         settingsView1.isHidden = false
         settingsView1.addToKeyWindow()
@@ -342,7 +340,33 @@ class ProfileSetViewController: UIViewController {
         UIView.animate(withDuration: 0.5, animations: {
             self.settingsView1.frame.origin.x = 0
         })
+        
+       
+        settingsTitle.font = CustomFont.bold.font(size: 34)
+        personaleInfoLbl.font = CustomFont.semibold.font(size: 16)
+        fullNameLbl.font = CustomFont.regular.font(size: 11)
+        nameErrorLbl.font = CustomFont.medium.font(size: 14)
+        self.fullnameTextField.font = CustomFont.regular.font(size: 14)
+        dobLbl.font = CustomFont.regular.font(size: 11)
+        self.dobTextField.font = CustomFont.regular.font(size: 14)
+        doberrorLbl.font = CustomFont.regular.font(size: 11)
+        passwordTitleLbl.font = CustomFont.semibold.font(size: 16)
+        passwordLbl.font = CustomFont.regular.font(size: 11)
+        self.passwordTextField.font = CustomFont.regular.font(size: 14)
+        notificationTitle.font = CustomFont.semibold.font(size: 16)
+        salesLbl.font = CustomFont.medium.font(size: 14)
+        newarrivalLbl.font = CustomFont.medium.font(size: 14)
+        deliveryStatusLbl.font = CustomFont.medium.font(size: 14)
+        passworderrorLbl.font = CustomFont.regular.font(size: 11)
+        fullnameTextField.attributedPlaceholder = NSAttributedString(string: "Full Name", attributes:[NSAttributedString.Key.foregroundColor: UIColor.customBottomGray])
+        passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password", attributes:[NSAttributedString.Key.foregroundColor: UIColor.customBottomGray])
+        dobTextField.attributedPlaceholder = NSAttributedString(string: "Date of birth", attributes:[NSAttributedString.Key.foregroundColor: UIColor.customBottomGray])
+
+        nameErrorLbl.isHidden = true
+        doberrorLbl.isHidden = true
+        passworderrorLbl.isHidden = true
     }
+    
     
     private func hideSettingsView() {
         UIView.animate(withDuration: 0.5, animations: { [weak self] in
@@ -364,6 +388,21 @@ class ProfileSetViewController: UIViewController {
     }
     
     private func animatePasswordChangeView() {
+        passwordLblTitle.font = CustomFont.semibold.font(size: 18)
+        forgetPasswordBtn.titleLabel?.font = CustomFont.medium.font(size: 14)
+        oldPasswordLbl.font = CustomFont.medium.font(size: 14)
+        newPasswordLbl.font = CustomFont.medium.font(size: 14)
+        repeatnewPasswordLbl.font = CustomFont.medium.font(size: 14)
+        self.oldPasswordTextField.font = CustomFont.regular.font(size: 14)
+        self.newPasswordTextField.font = CustomFont.regular.font(size: 14)
+        self.repeatnewPasswordTextField.font = CustomFont.regular.font(size: 14)
+        
+        oldPasswordTextField.attributedPlaceholder = NSAttributedString(string: "Old Password", attributes:[NSAttributedString.Key.foregroundColor: UIColor.customBottomGray])
+        newPasswordTextField.attributedPlaceholder = NSAttributedString(string: "New Password", attributes:[NSAttributedString.Key.foregroundColor: UIColor.customBottomGray])
+        repeatnewPasswordTextField.attributedPlaceholder = NSAttributedString(string: "Repeat New Password", attributes:[NSAttributedString.Key.foregroundColor: UIColor.customBottomGray])
+        
+        savepasswordBtn.titleLabel?.font = CustomFont.medium.font(size: 14)
+
         passwordChange.frame = CGRect(
             x: 0,
             y: 0,
@@ -393,7 +432,9 @@ class ProfileSetViewController: UIViewController {
             // Move into view
             finalYPosition = viewHeight - bottomSheetForgetPassword.frame.height
         }
-        
+      
+        // 82 82 82 10 %
+
         // Animate the position change
         UIView.animate(withDuration: animationDuration,
                        delay: 0,
@@ -434,52 +475,66 @@ class ProfileSetViewController: UIViewController {
             }
         })
     }
-    
     // MARK: - ---------------- CommingSoonView End----------------
     
 }
 
 extension ProfileSetViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (tableView == self.profileViewtableView ) {
+        if tableView == self.profileViewtableView {
             return profileItemViewModal.numberOfItems()
+        } else if tableView == self.myOrderListTableView {
+            
+            switch actionTypeMainVar {
+            case .delivered:
+                return 10
+            case .processing:
+                return 2
+            case .canceled:
+                return 1
+            }
         }
-        return 10
+        return 0
     }
+
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
         if tableView == self.profileViewtableView {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ECOMAPP.VIEW.PROFILEVC.PROFILEITEM, for: indexPath) as? ProfileItemTableViewCell else {
                 fatalError(ECOMAPP.CELLLOADERROR)
             }
+            
             cell.selectionStyle = .none
             
             let item = profileItemViewModal.item(at: indexPath.row)
             cell.loadCellData(item)
-          
+            
+            // Add tap gesture to the contentView
             let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(profileTypeBtnTapped(_:)))
             cell.contentView.addGestureRecognizer(gestureRecognizer)
             gestureRecognizer.view?.tag = indexPath.row
+
             
-            print(#function)
             return cell
-        }
-            
-            let cell1 = tableView.dequeueReusableCell(withIdentifier: ECOMAPP.VIEW.PROFILEVC.ORDERDETAIL, for: indexPath) as! OrderDetailsTableViewCell
-            cell1.selectionStyle = .none
-            let item = profileItemViewModal.item(at: indexPath.row)
-            cell1.loadCellData(item)
-      
-        
+        } else if tableView == self.myOrderListTableView {
+            guard let cell1 = tableView.dequeueReusableCell(withIdentifier: ECOMAPP.VIEW.PROFILEVC.ORDERDETAIL, for: indexPath) as? OrderDetailsTableViewCell else {
+                fatalError(ECOMAPP.CELLLOADERROR)
+            }
+                        
+            cell1.loadCellData( actionType: actionTypeMainVar, indexPath: indexPath)
             cell1.detailsBtnLbl.setTitle("Details", for: .normal)
+            
+            // Assign tag and target to the button
             cell1.detailsBtnLbl.tag = indexPath.row
             cell1.detailsBtnLbl.addTarget(self, action: #selector(detailsButtonTapped(_:)), for: .touchUpInside)
             
             return cell1
+        }
         
+        return UITableViewCell() // Correct return type for default case
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if (tableView == self.profileViewtableView ) {
             return 75.0
