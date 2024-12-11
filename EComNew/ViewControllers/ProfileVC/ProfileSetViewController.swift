@@ -6,13 +6,15 @@
 //
 
 import UIKit
+
+
 enum ActionType {
     case delivered
     case processing
     case canceled
 }
 
-class ProfileSetViewController: UIViewController {
+class ProfileSetViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - ---------------- ProfilesView ----------------
     @IBOutlet weak var profileViewtableView: UITableView!
@@ -115,9 +117,15 @@ class ProfileSetViewController: UIViewController {
         self.title = ECOMAPP.VC.PROFILEVC
         setUpViews()
         print(#function)
-       
+      //  registerAutoKeyboard()
+
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+       // self.passwordTextField.becomeFirstResponder()
+
+    }
     // MARK: - ---------------- Private Methods ----------------
     private func setUpViews() {
         setUpProfileView()
@@ -345,7 +353,7 @@ class ProfileSetViewController: UIViewController {
         settingsTitle.font = CustomFont.bold.font(size: 34)
         personaleInfoLbl.font = CustomFont.semibold.font(size: 16)
         fullNameLbl.font = CustomFont.regular.font(size: 11)
-        nameErrorLbl.font = CustomFont.medium.font(size: 14)
+        //nameErrorLbl.font = CustomFont.medium.font(size: 14)
         self.fullnameTextField.font = CustomFont.regular.font(size: 14)
         dobLbl.font = CustomFont.regular.font(size: 11)
         self.dobTextField.font = CustomFont.regular.font(size: 14)
@@ -361,10 +369,14 @@ class ProfileSetViewController: UIViewController {
         fullnameTextField.attributedPlaceholder = NSAttributedString(string: "Full Name", attributes:[NSAttributedString.Key.foregroundColor: UIColor.customBottomGray])
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password", attributes:[NSAttributedString.Key.foregroundColor: UIColor.customBottomGray])
         dobTextField.attributedPlaceholder = NSAttributedString(string: "Date of birth", attributes:[NSAttributedString.Key.foregroundColor: UIColor.customBottomGray])
-
+        passwordTextField.delegate = self
+        fullnameTextField.delegate = self
+        dobTextField.delegate = self
         nameErrorLbl.isHidden = true
         doberrorLbl.isHidden = true
         passworderrorLbl.isHidden = true
+        print(passwordTextField.canBecomeFirstResponder) // Should print true
+
     }
     
     
@@ -432,8 +444,6 @@ class ProfileSetViewController: UIViewController {
             // Move into view
             finalYPosition = viewHeight - bottomSheetForgetPassword.frame.height
         }
-      
-        // 82 82 82 10 %
 
         // Animate the position change
         UIView.animate(withDuration: animationDuration,
@@ -475,6 +485,7 @@ class ProfileSetViewController: UIViewController {
             }
         })
     }
+    
     // MARK: - ---------------- CommingSoonView End----------------
     
 }
@@ -543,7 +554,17 @@ extension ProfileSetViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
    
-    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == passwordTextField {
+            print("Password text field tapped")
+        }
+        if textField == fullnameTextField {
+            print("NameField text field tapped")
+        }
+        if textField == dobTextField {
+            print("DOBField text field tapped")
+        }
+    }
 }
 
 // MARK: - ---------------- View LifeCycle Methods ----------------

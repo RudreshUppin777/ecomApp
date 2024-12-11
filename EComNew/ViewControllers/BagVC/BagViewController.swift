@@ -24,28 +24,40 @@ class BagViewController: UIViewController {
     }
     // MARK: - ---------------- Public Methods ----------------
     // MARK: - ---------------- Private Methods ----------------
-    private func centerLoader() {
+//    private func centerLoader() {
+//        guard let loader = loader else { return }
+//        
+//        let loaderSize: CGFloat = 30
+//        let centerX = self.view.bounds.midX
+//        let centerY = self.view.bounds.midY
+//        
+//        let frame = CGRect(
+//            x: centerX - loaderSize / 2,
+//            y: centerY - loaderSize / 2,
+//            width: loaderSize,
+//            height: loaderSize
+//        )
+//        loader.frame = frame
+//    }
+    
+    private func bagcenterLoader() {
         guard let loader = loader else { return }
-        
+        let topDistance: CGFloat = 15
         let loaderSize: CGFloat = 30
-        let centerX = self.view.bounds.midX
-        let centerY = self.view.bounds.midY
+        let xPosition = (self.view.bounds.width - loaderSize) / 2 
+        let yPosition = (self.view.bounds.height - loaderSize) / 2
         
-        let frame = CGRect(
-            x: centerX - loaderSize / 2,
-            y: centerY - loaderSize / 2,
-            width: loaderSize,
-            height: loaderSize
-        )
-        loader.frame = frame
+        loader.frame = CGRect(x: xPosition, y: yPosition, width: loaderSize, height: loaderSize)
+ 
+        
+     
     }
     
     private func setUpViews() {
         loader = CustomRingLoader(frame: .zero)
-        loader.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(loader)
-        centerLoader()
+        bagcenterLoader()
         
         // Start or stop animation as needed
         startLoading()
@@ -67,7 +79,7 @@ class BagViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        centerLoader()
+        bagcenterLoader()
     }
  
     private func startLoading() {

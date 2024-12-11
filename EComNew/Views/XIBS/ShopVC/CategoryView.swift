@@ -84,7 +84,8 @@ class CategoryView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        centerLoader()
+        catrgoryCenterLoader(main: view)
+        
     }
     
     private func setUpMenCatView() {
@@ -92,7 +93,7 @@ class CategoryView: UIView {
         mensCatView.frame = view.bounds
         mensCatView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(mensCatView)
-       // commingSoonLbl1.isHidden = true
+        // commingSoonLbl1.isHidden = true
         setupLoader(for: mensCatView, main: view)
     }
     
@@ -110,47 +111,37 @@ class CategoryView: UIView {
         kidsCatView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         kidsCatView.frame = view.bounds
         view.addSubview(kidsCatView)
-      //  commingSoonLbl2.isHidden = true
+        //  commingSoonLbl2.isHidden = true
         setupLoader(for: kidsCatView, main: view)
     }
-    private func setupLoader() {
-        // Initialize the loader with zero frame initially
-        loader = CustomRingLoader(frame: .zero)
-        loader.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(loader)
-    }
     
-    private func centerLoader() {
+    
+    private func catrgoryCenterLoader(main: UIView) {
         guard let loader = loader else { return }
         
         let loaderSize: CGFloat = 30
-        let centerX = bounds.midX
-        let centerY = bounds.midY-84
+        let topDisatnce: CGFloat = 15
+        let xPosition = (main.bounds.width - loaderSize) / 2 - 10
+        let yPosition = (main.bounds.height - loaderSize) / 2 - topDisatnce
         
-        let frame = CGRect(
-            x: centerX - loaderSize / 2,
-            y: centerY - loaderSize / 2,
-            width: loaderSize,
-            height: loaderSize
-        )
-        loader.frame = frame
+        loader.frame = CGRect(x: xPosition, y: yPosition, width: loaderSize, height: loaderSize)
+        
     }
     
     private func setupLoader(for childview:UIView, main:UIView) {
-        
         loader = CustomRingLoader(frame: .zero)
-        loader.translatesAutoresizingMaskIntoConstraints = false
-        
+        catrgoryCenterLoader(main: main)
         main.addSubview(loader)
-        centerLoader()
+        
+        //self.view.backgroundColor =  .gray
         startLoading()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
             self?.stopLoading()
             if (childview == self?.kidsCatView){
-              //  self?.commingSoonLbl2.isHidden = false
+                //  self?.commingSoonLbl2.isHidden = false
             } else if (childview == self?.mensCatView){
-               // self?.commingSoonLbl1.isHidden = false
+                // self?.commingSoonLbl1.isHidden = false
             }
             else if (childview == self?.womensCatView){
                 self?.womensCatView.isHidden = false
@@ -164,13 +155,13 @@ class CategoryView: UIView {
     }
     
     private func stopLoading() {
-                indicatorView?.stopAnimating()
-                loader.removeFromSuperview()
+        indicatorView?.stopAnimating()
+        loader.removeFromSuperview()
     }
     
     private func setUpTableViewCell1() {
         self.heightCatTabCell.constant = 500
-
+        
         catTableView1.delegate = self
         catTableView1.dataSource = self
         self.catTableView1.register(UINib(nibName: ECOMAPP.TCELLNAME.SHOPITEM, bundle: nil), forCellReuseIdentifier: ECOMAPP.TCELLNAME.SHOPITEM)
@@ -186,7 +177,7 @@ class CategoryView: UIView {
         
         self.catTableView1.reloadData()
         self.subCatTableView.reloadData()
-
+        
     }
     
     private func setUpTableViewCell2() {

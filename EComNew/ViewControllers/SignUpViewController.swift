@@ -63,6 +63,7 @@ class SignUpViewController: UIViewController ,UIGestureRecognizerDelegate{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+
     }
     
     // MARK: - ---------------- Public Methods ----------------
@@ -265,9 +266,21 @@ class SignUpViewController: UIViewController ,UIGestureRecognizerDelegate{
     }
     
     @IBAction func signUpClick(_ sender: Any) {
-        if let homevc: HomeViewController = UIStoryboard.instantiateViewController(storyboardName: "Main", identifier: ECOMAPP.VC.HOMEVC) {
-            self.navigationController?.pushViewController(homevc, animated: true)
-        }
+//        if let homevc: HomeViewController = UIStoryboard.instantiateViewController(storyboardName: "Main", identifier: ECOMAPP.VC.HOMEVC) {
+//            self.navigationController?.pushViewController(homevc, animated: true)
+//        }
+//        if let homevc: MainHomeViewController = UIStoryboard.instantiateViewController(storyboardName: "Main", identifier: ECOMAPP.VC.MAINHOME) {
+//            self.navigationController?.pushViewController(homevc, animated: true)
+//        }
+        
+//        if let homevc = UIStoryboard(name: "MainHomeViewController", bundle: nil).instantiateViewController(withIdentifier: ECOMAPP.VC.MAINHOME)
+//            as? MainHomeViewController {
+//            self.navigationController?.pushViewController(homevc, animated: true)
+//        }
+        
+        let myViewController = MainHomeViewController(nibName: "MainHomeViewController", bundle: nil)
+        self.navigationController?.pushViewController(myViewController, animated: true)
+
     }
     
     @IBAction func googleActClick(_ sender: UIButton) {

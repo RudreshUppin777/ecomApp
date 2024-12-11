@@ -10,7 +10,7 @@ target 'EComNew' do
   target 'EComNewTests' do
     inherit! :search_paths
     # Pods for testing
-pod 'IQKeyboardManager'
+    pod 'IQKeyboardManager'
   end
 
   target 'EComNewUITests' do

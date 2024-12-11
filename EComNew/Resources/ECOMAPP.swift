@@ -14,6 +14,7 @@ enum ECOMAPP {
 
         static let MAINVC = "MainViewController"
         static let HOMEVC = "HomeViewController"
+        static let MAINHOME = "MainHomeViewController"        
         static let SHOPVC = "ShopViewController"
         static let BAGVC = "BagViewController"
         static let FAVVC = "FavouriteViewController"

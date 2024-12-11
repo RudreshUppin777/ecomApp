@@ -5,22 +5,10 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            uuid = "C7BC96F9-7795-4027-A5EF-69E6BF7570C0"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            breakpointStackSelectionBehavior = "1"
-            scope = "1"
-            stopOnStyle = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F16E1047-3EC2-449B-B0CC-5E444AA82595"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EComNew/ViewModel/ProfileItemViewModal.swift"
@@ -36,7 +24,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B9927079-E7E8-49FB-AD68-B013157C716D"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EComNew/ViewModel/ProfileItemViewModal.swift"
@@ -52,7 +40,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "557E5EEF-E5CC-42EC-904F-8DC80F6FC795"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EComNew/ViewControllers/ShopVC/ShopViewController.swift"
@@ -67,81 +55,77 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FDF1C57B-020F-4364-B67F-A5DEEE790043"
-            shouldBeEnabled = "Yes"
+            uuid = "A91EB210-7F1B-4404-9B77-D8CEF1F278B1"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EComNew/ViewControllers/ProfileVC/ProfileSetViewController.swift"
+            filePath = "EComNew/Views/XIBS/ShopVC/CategoryView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "415"
-            endingLineNumber = "415"
-            landmarkName = "animatePasswordChangeView()"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "layoutSubviews()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A04C3C5F-B748-4E29-A157-C98486ED6E8C"
-            shouldBeEnabled = "Yes"
+            uuid = "3563DEC5-8B28-4A3D-B592-C3D66895D5A8"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EComNew/ViewControllers/ProfileVC/ProfileSetViewController.swift"
+            filePath = "EComNew/ViewControllers/BagVC/BagViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "452"
-            endingLineNumber = "452"
-            landmarkName = "animatePasswordChangeView()"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "bagcenterLoader()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "060C86DF-D876-41B5-9D83-9C4B078656A4"
-            shouldBeEnabled = "Yes"
+            uuid = "1E83663A-DB7F-4025-9D68-1504B6A916DB"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EComNew/ViewControllers/ProfileVC/ProfileSetViewController.swift"
+            filePath = "EComNew/ViewControllers/FavouriteVC/FavouriteViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "428"
-            endingLineNumber = "428"
-            landmarkName = "animatePasswordChangeView()"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "favcenterLoader()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0FF984D9-3336-4681-9683-22964617C468"
-            shouldBeEnabled = "Yes"
+            uuid = "CAFD5CA0-B625-4721-838D-DD1572C68275"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EComNew/ViewControllers/ProfileVC/ProfileSetViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "431"
-            endingLineNumber = "431"
-            landmarkName = "animatePasswordChangeView()"
+            startingLineNumber = "342"
+            endingLineNumber = "342"
+            landmarkName = "setUpSettingsView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
-            uuid = "9EBE0607-953D-42CA-9D4C-746239499F1C"
+            uuid = "8B439043-B46B-4EBA-B453-4A3726618AFF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EComNew/ViewControllers/ProfileVC/ProfileSetViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "434"
-            endingLineNumber = "434"
-            landmarkName = "animatePasswordChangeView()"
-            landmarkType = "7">
+            breakpointStackSelectionBehavior = "1"
+            scope = "1"
+            stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

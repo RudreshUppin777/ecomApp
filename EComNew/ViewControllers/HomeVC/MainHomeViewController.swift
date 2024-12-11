@@ -1,9 +1,10 @@
 //
-//  ViewController.swift
+//  MainHomeViewController.swift
 //  EComNew
 //
-//  Created by Way2 on 07/06/24.
+//  Created by Way2 on 05/12/24.
 //
+
 
 import UIKit
 enum BottomMenuState: String {
@@ -14,12 +15,29 @@ enum BottomMenuState: String {
     case profile = "Profile"
 }
 
-class HomeViewController: UIViewController,BottomMenuDelegateFromHomeVC{
+class MainHomeViewController: UIViewController,BottomMenuDelegateFromHomeVC{
     
     // MARK: ---------------- IBOutLets ----------------
     @IBOutlet weak var saleClothsCollectionView: UICollectionView!
     @IBOutlet weak var newsClothsCollectionView: UICollectionView!
 
+    @IBOutlet weak var checkBtn: UIButton!
+    @IBOutlet weak var saleviewall: UIButton!
+    @IBOutlet weak var newviewall: UIButton!
+
+    @IBOutlet weak var fashionlbl: UILabel!
+    @IBOutlet weak var newCollectionLbl: UILabel!
+    @IBOutlet weak var summerSaleLbl: UILabel!
+    @IBOutlet weak var blackSaleLbl: UILabel!
+    @IBOutlet weak var mensHoddieLbl: UILabel!
+    @IBOutlet weak var streetClothLbl: UILabel!
+    @IBOutlet weak var saleLbl: UILabel!
+    @IBOutlet weak var saleLbl1: UILabel!
+    @IBOutlet weak var newLbl: UILabel!
+    @IBOutlet weak var newLbl1: UILabel!
+    
+    
+    
     // MARK: ---------------- Variables ----------------
     var currentChildVC: UIViewController?
     private var homeViewModel = HomeViewModel()
@@ -30,8 +48,8 @@ class HomeViewController: UIViewController,BottomMenuDelegateFromHomeVC{
         bottomMenuChild.delegateFromHomeVc  = self
         bottomMenuChild.frame = CGRect(
             x: 0,
-            y: viewHeight-originalBottomMenuHeight,
-            width: viewWidth,
+            y: mainHeight-originalBottomMenuHeight,
+            width: mainWidth,
             height: originalBottomMenuHeight
         )
         bottomMenuChild.roundCornersOnTopRightAndLeft(corners: [.topLeft, .topRight], radius: 15.0)
@@ -69,10 +87,33 @@ class HomeViewController: UIViewController,BottomMenuDelegateFromHomeVC{
 
     // MARK: - ---------------- Private Methods Start ----------------
     private func setUpViews() {
+        setUpFonts()
         setupCollectionViews()
         addBottomMenu()
     }
-
+    
+    private func setUpFonts() {
+//        @IBOutlet weak var checkBtn: UIButton!
+//        @IBOutlet weak var saleviewall: UIButton!
+//        @IBOutlet weak var newviewall: UIButton!
+        
+//
+//        @IBOutlet weak var saleLbl: UILabel!
+//        @IBOutlet weak var saleLbl1: UILabel!
+//        @IBOutlet weak var newLbl: UILabel!
+//        @IBOutlet weak var newLbl1: UILabel!
+        
+        fashionlbl.font = CustomFont.black.font(size: 48)
+        
+        streetClothLbl.font = CustomFont.black.font(size: 34)
+        newCollectionLbl.font = CustomFont.bold.font(size: 34)
+        summerSaleLbl.font = CustomFont.bold.font(size: 34)
+        summerSaleLbl.font = CustomFont.bold.font(size: 34)
+        blackSaleLbl.font = CustomFont.bold.font(size: 34)
+        mensHoddieLbl.font = CustomFont.bold.font(size: 34)
+        
+    }
+    
     private func setupCollectionViews() {
         self.saleClothsCollectionView.delegate = self
         self.saleClothsCollectionView.dataSource = self
@@ -88,9 +129,8 @@ class HomeViewController: UIViewController,BottomMenuDelegateFromHomeVC{
     private func switchViewController(_ state: BottomMenuStates) {
         switch state {
         case .home:
-            if let mainVC: HomeViewController = UIStoryboard.instantiateViewController(storyboardName: "Main", identifier: ECOMAPP.VC.HOMEVC) {
-                replaceChildViewController(with: mainVC)
-            }
+            let mainVC = MainHomeViewController(nibName: ECOMAPP.VC.MAINHOME, bundle: nil)
+            replaceChildViewController(with: mainVC)
         case .shop:
             let shopvc = ShopViewController(nibName: ECOMAPP.VC.SHOPVC, bundle: nil)
             replaceChildViewController(with: shopvc)
@@ -133,7 +173,8 @@ class HomeViewController: UIViewController,BottomMenuDelegateFromHomeVC{
     }
     
     private func addBottomMenu() {
-        self.view.addSubview(bottomMenu)
+    
+        self.view.insertSubview(bottomMenu, at: 0)
         self.view.bringSubviewToFront(bottomMenu)
     }
     
@@ -146,7 +187,7 @@ class HomeViewController: UIViewController,BottomMenuDelegateFromHomeVC{
 
 }
 
-extension HomeViewController: UICollectionViewDataSource {
+extension MainHomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == saleClothsCollectionView {
@@ -175,7 +216,7 @@ extension HomeViewController: UICollectionViewDataSource {
     }
 }
 
-extension HomeViewController: UICollectionViewDelegate {
+extension MainHomeViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == saleClothsCollectionView {
@@ -186,7 +227,7 @@ extension HomeViewController: UICollectionViewDelegate {
     }
 }
 
-extension HomeViewController: UICollectionViewDelegateFlowLayout {
+extension MainHomeViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == saleClothsCollectionView {

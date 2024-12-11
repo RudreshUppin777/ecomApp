@@ -28,15 +28,30 @@ class FavouriteViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        loader.center = CGPoint(x: self.view.bounds.midX, y:self.view.bounds.midY)
+       // loader.center = CGPoint(x: self.view.bounds.midX, y:self.view.bounds.midY)
+        favcenterLoader()
     }
     
+    private func favcenterLoader() {
+        guard let loader = loader else { return }
+        let topDistance: CGFloat = 15
+        let loaderSize: CGFloat = 30
+        let xPosition = (self.view.bounds.width - loaderSize) / 2 
+        let yPosition = (self.view.bounds.height - loaderSize) / 2
+        
+        loader.frame = CGRect(x: xPosition, y: yPosition, width: loaderSize, height: loaderSize)
+ 
+        
+     
+    }
+
       private func setUpViews() {
           let frame1 = CGRect(x: midXValue - 15, y: midYValue - 15, width: 30, height: 30)
-                 loader = CustomRingLoader(frame: frame1)
-          loader.center = view.center
-          view.addSubview(loader)
+          loader = CustomRingLoader(frame: .zero)
           
+          //loader.center = view.center
+          view.addSubview(loader)
+          favcenterLoader()
           // Start or stop animation as needed
           startLoading()
           

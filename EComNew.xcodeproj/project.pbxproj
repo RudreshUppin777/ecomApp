@@ -38,6 +38,7 @@
 		782E5B6F2C36D35C00D2BDA9 /* CustomRingLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782E5B6E2C36D35C00D2BDA9 /* CustomRingLoader.swift */; };
 		7835FED42CC67EE4000F3FE8 /* OrderDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7835FED22CC67EE4000F3FE8 /* OrderDetailsTableViewCell.swift */; };
 		7835FED52CC67EE4000F3FE8 /* OrderDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7835FED32CC67EE4000F3FE8 /* OrderDetailsTableViewCell.xib */; };
+		7836C6AD2D006296002CFA39 /* AutoKeyboardScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836C6AC2D006296002CFA39 /* AutoKeyboardScrollView.swift */; };
 		7839C49F2C2C2F0D00229DB6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7839C49E2C2C2F0D00229DB6 /* String.swift */; };
 		78481A022C9C477600B31D52 /* Metropolis-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78481A012C9C477600B31D52 /* Metropolis-Black.otf */; };
 		7850B4152CC75FC0006D98B7 /* BagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7850B4132CC75FC0006D98B7 /* BagViewController.swift */; };
@@ -50,7 +51,6 @@
 		787A9F4E2CCA6F4D00105388 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787A9F4B2CCA6F4D00105388 /* ShopViewController.swift */; };
 		789668922C13131000D1F63E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789668912C13131000D1F63E /* AppDelegate.swift */; };
 		789668942C13131000D1F63E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789668932C13131000D1F63E /* SceneDelegate.swift */; };
-		789668962C13131000D1F63E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789668952C13131000D1F63E /* HomeViewController.swift */; };
 		789668992C13131000D1F63E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 789668982C13131000D1F63E /* Base */; };
 		7896689C2C13131000D1F63E /* EComNew.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7896689A2C13131000D1F63E /* EComNew.xcdatamodeld */; };
 		7896689E2C13131100D1F63E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7896689D2C13131100D1F63E /* Assets.xcassets */; };
@@ -72,6 +72,8 @@
 		78C0E59D2C37FD9D00524BAA /* ProfileItemsModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C0E59C2C37FD9D00524BAA /* ProfileItemsModal.swift */; };
 		78C0E5A42C38130F00524BAA /* FavItemTabTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78C0E5A32C38130F00524BAA /* FavItemTabTableViewCell.xib */; };
 		78C0E5A52C38130F00524BAA /* FavItemTabTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C0E5A22C38130F00524BAA /* FavItemTabTableViewCell.swift */; };
+		78C39B6A2D01694600120390 /* MainHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78C39B692D01694600120390 /* MainHomeViewController.xib */; };
+		78C39B6B2D01694600120390 /* MainHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C39B682D01694600120390 /* MainHomeViewController.swift */; };
 		78D6D9672C326E410015C3CF /* ECOMAPP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D6D9662C326E410015C3CF /* ECOMAPP.swift */; };
 		78D80BA92CBD3D8D004B2686 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D80BA82CBD3D89004B2686 /* Images.swift */; };
 		78DA5C9B2C172BF500386E15 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DA5C9A2C172BF500386E15 /* UIViewController.swift */; };
@@ -137,6 +139,7 @@
 		782E5B6E2C36D35C00D2BDA9 /* CustomRingLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRingLoader.swift; sourceTree = "<group>"; };
 		7835FED22CC67EE4000F3FE8 /* OrderDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		7835FED32CC67EE4000F3FE8 /* OrderDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		7836C6AC2D006296002CFA39 /* AutoKeyboardScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoKeyboardScrollView.swift; sourceTree = "<group>"; };
 		7839C49E2C2C2F0D00229DB6 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		78481A012C9C477600B31D52 /* Metropolis-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metropolis-Black.otf"; sourceTree = "<group>"; };
 		7850B4132CC75FC0006D98B7 /* BagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagViewController.swift; sourceTree = "<group>"; };
@@ -150,7 +153,6 @@
 		7896688E2C13131000D1F63E /* EComNew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EComNew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		789668912C13131000D1F63E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		789668932C13131000D1F63E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		789668952C13131000D1F63E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		789668982C13131000D1F63E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7896689B2C13131000D1F63E /* EComNew.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EComNew.xcdatamodel; sourceTree = "<group>"; };
 		7896689D2C13131100D1F63E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -173,6 +175,8 @@
 		78C0E59C2C37FD9D00524BAA /* ProfileItemsModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileItemsModal.swift; sourceTree = "<group>"; };
 		78C0E5A22C38130F00524BAA /* FavItemTabTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavItemTabTableViewCell.swift; sourceTree = "<group>"; };
 		78C0E5A32C38130F00524BAA /* FavItemTabTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavItemTabTableViewCell.xib; sourceTree = "<group>"; };
+		78C39B682D01694600120390 /* MainHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomeViewController.swift; sourceTree = "<group>"; };
+		78C39B692D01694600120390 /* MainHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainHomeViewController.xib; sourceTree = "<group>"; };
 		78D6D9662C326E410015C3CF /* ECOMAPP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECOMAPP.swift; sourceTree = "<group>"; };
 		78D80BA82CBD3D89004B2686 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		78DA5C9A2C172BF500386E15 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
@@ -241,7 +245,8 @@
 		7811F8CA2C32B35E0074E764 /* HomeVC */ = {
 			isa = PBXGroup;
 			children = (
-				789668952C13131000D1F63E /* HomeViewController.swift */,
+				78C39B682D01694600120390 /* MainHomeViewController.swift */,
+				78C39B692D01694600120390 /* MainHomeViewController.xib */,
 			);
 			path = HomeVC;
 			sourceTree = "<group>";
@@ -507,6 +512,7 @@
 				782E5B6D2C36C50F00D2BDA9 /* SignInVC */,
 				782E5B6C2C36C50500D2BDA9 /* BottomMenu */,
 				782E5B592C36B4A100D2BDA9 /* ShopVC */,
+				7836C6AC2D006296002CFA39 /* AutoKeyboardScrollView.swift */,
 			);
 			path = XIBS;
 			sourceTree = "<group>";
@@ -552,7 +558,7 @@
 				789668A32C13131100D1F63E /* Sources */,
 				789668A42C13131100D1F63E /* Frameworks */,
 				789668A52C13131100D1F63E /* Resources */,
-				F6E16B0E03143E95CE46E8C4 /* [CP] Embed Pods Frameworks */,
+				0A222BE5B2A7B0D1B3BDDE0D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -643,6 +649,7 @@
 				7896689E2C13131100D1F63E /* Assets.xcassets in Resources */,
 				787A9F4A2CCA6D5D00105388 /* FavouriteViewController.xib in Resources */,
 				78178F772C185DC700A1B45D /* BottomMenuView.xib in Resources */,
+				78C39B6A2D01694600120390 /* MainHomeViewController.xib in Resources */,
 				789668A12C13131100D1F63E /* Base in Resources */,
 				7811F8DD2C32D6EE0074E764 /* ClothCollectionViewCell.xib in Resources */,
 				789FA0992CC63BFD00C5D57B /* ProfileSetViewController.xib in Resources */,
@@ -678,6 +685,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0A222BE5B2A7B0D1B3BDDE0D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EComNewTests/Pods-EComNewTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EComNewTests/Pods-EComNewTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EComNewTests/Pods-EComNewTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		655E281A56B43F5D837944B4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -744,23 +768,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F6E16B0E03143E95CE46E8C4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-EComNewTests/Pods-EComNewTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-EComNewTests/Pods-EComNewTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EComNewTests/Pods-EComNewTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -776,9 +783,9 @@
 				782402C52C33FE43000A575F /* ProfileItemTableViewCell.swift in Sources */,
 				789668D22C1315E800D1F63E /* ForgetPasswordView.swift in Sources */,
 				7811F8DC2C32D6EE0074E764 /* ClothCollectionViewCell.swift in Sources */,
+				78C39B6B2D01694600120390 /* MainHomeViewController.swift in Sources */,
 				78E580612CC10BC100B1416D /* ImageSelectionView.swift in Sources */,
 				78DA5C9D2C172CD700386E15 /* SignUpViewController.swift in Sources */,
-				789668962C13131000D1F63E /* HomeViewController.swift in Sources */,
 				782E5B4E2C36830200D2BDA9 /* RedView.swift in Sources */,
 				78199E932C1AAD9200745580 /* UITextField.swift in Sources */,
 				7897A09A2C3D1BB300063BF2 /* ShopWomenSubCatItems.swift in Sources */,
@@ -790,6 +797,7 @@
 				78DA5C9B2C172BF500386E15 /* UIViewController.swift in Sources */,
 				78C0E59B2C37FD7400524BAA /* ProfileItemViewModal.swift in Sources */,
 				78DA5C9F2C172CE300386E15 /* SignInViewController.swift in Sources */,
+				7836C6AD2D006296002CFA39 /* AutoKeyboardScrollView.swift in Sources */,
 				78C0E5A52C38130F00524BAA /* FavItemTabTableViewCell.swift in Sources */,
 				782E5B4C2C366A1A00D2BDA9 /* ShopItemViewModal.swift in Sources */,
 				789FA09A2CC63BFD00C5D57B /* ProfileSetViewController.swift in Sources */,
