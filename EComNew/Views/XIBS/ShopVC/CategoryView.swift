@@ -20,6 +20,7 @@ class CategoryView: UIView {
     weak var womencartdelegate: WomenCatViewDelegate?
     private var indicatorView: NVActivityIndicatorView?
     private var loader: CustomRingLoader!
+    private var parentViewController: UIViewController?
     
     let viewModel = ShopItemViewModal()
     let subCatViewModal = SubCatItemViewModal()
@@ -119,19 +120,50 @@ class CategoryView: UIView {
     private func catrgoryCenterLoader(main: UIView) {
         guard let loader = loader else { return }
         
-        let loaderSize: CGFloat = 30
-        let topDisatnce: CGFloat = 15
-        let xPosition = (main.bounds.width - loaderSize) / 2 - 10
-        let yPosition = (main.bounds.height - loaderSize) / 2 - topDisatnce
+        // Set loader frame to match main view bounds
+        loader.frame = main.bounds
         
-        loader.frame = CGRect(x: xPosition, y: yPosition, width: loaderSize, height: loaderSize)
+        // Calculate center point to match parent view controller's view.center
+        // This ensures the loader appears at the same Y position as Bag/Favourite
+        let centerPoint: CGPoint
         
+        // Find parent view controller if not already found
+        if parentViewController == nil {
+            parentViewController = findViewController()
+        }
+        
+        if let parentVC = parentViewController {
+            // Convert parent view controller's view.center to this view's coordinate system
+            let parentCenter = parentVC.view.center
+            let centerInMain = main.convert(parentCenter, from: parentVC.view)
+            centerPoint = CGPoint(x: centerInMain.x, y: centerInMain.y)
+        } else {
+            // Fallback to bounds center if parent view controller not found
+            centerPoint = CGPoint(x: main.bounds.midX, y: main.bounds.midY)
+        }
+        
+        loader.updateCenterPoint(centerPoint)
+    }
+    
+    // Helper method to find the parent view controller
+    private func findViewController() -> UIViewController? {
+        var responder: UIResponder? = self
+        while responder != nil {
+            responder = responder?.next
+            if let viewController = responder as? UIViewController {
+                return viewController
+            }
+        }
+        return nil
     }
     
     private func setupLoader(for childview:UIView, main:UIView) {
-        loader = CustomRingLoader(frame: .zero)
-        catrgoryCenterLoader(main: main)
+        // Initialize loader with main view bounds
+        loader = CustomRingLoader(frame: main.bounds)
         main.addSubview(loader)
+        
+        // Center the loader using view.center equivalent (bounds center)
+        catrgoryCenterLoader(main: main)
         
         //self.view.backgroundColor =  .gray
         startLoading()
@@ -252,3 +284,5 @@ extension CategoryView: UITableViewDataSource, UITableViewDelegate {
         return 45.0
     }
 }
+
+

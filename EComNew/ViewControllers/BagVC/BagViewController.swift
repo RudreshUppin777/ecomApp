@@ -26,11 +26,11 @@ class BagViewController: UIViewController {
     // MARK: - ---------------- Private Methods ----------------
 //    private func centerLoader() {
 //        guard let loader = loader else { return }
-//        
+//
 //        let loaderSize: CGFloat = 30
 //        let centerX = self.view.bounds.midX
 //        let centerY = self.view.bounds.midY
-//        
+//
 //        let frame = CGRect(
 //            x: centerX - loaderSize / 2,
 //            y: centerY - loaderSize / 2,
@@ -42,20 +42,19 @@ class BagViewController: UIViewController {
     
     private func bagcenterLoader() {
         guard let loader = loader else { return }
-        let topDistance: CGFloat = 15
-        let loaderSize: CGFloat = 30
-        let xPosition = (self.view.bounds.width - loaderSize) / 2 
-        let yPosition = (self.view.bounds.height - loaderSize) / 2
         
-        loader.frame = CGRect(x: xPosition, y: yPosition, width: loaderSize, height: loaderSize)
- 
+        // Set loader frame to match view bounds (accounts for safe area automatically)
+        loader.frame = view.bounds
         
-     
+        // Calculate center point in the loader's coordinate system (which matches view.bounds)
+        // This ensures the loader is centered at view.center position, accounting for safe area
+        let centerPoint = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+        loader.updateCenterPoint(centerPoint)
     }
     
     private func setUpViews() {
-        loader = CustomRingLoader(frame: .zero)
-        
+        // Initialize loader with view bounds to fill entire view
+        loader = CustomRingLoader(frame: view.bounds)
         view.addSubview(loader)
         bagcenterLoader()
         
@@ -92,4 +91,6 @@ class BagViewController: UIViewController {
     }
     // MARK: - ---------------- IBActions Methods ----------------
 }
+
+
 

@@ -34,22 +34,19 @@ class FavouriteViewController: UIViewController {
     
     private func favcenterLoader() {
         guard let loader = loader else { return }
-        let topDistance: CGFloat = 15
-        let loaderSize: CGFloat = 30
-        let xPosition = (self.view.bounds.width - loaderSize) / 2 
-        let yPosition = (self.view.bounds.height - loaderSize) / 2
         
-        loader.frame = CGRect(x: xPosition, y: yPosition, width: loaderSize, height: loaderSize)
- 
+        // Set loader frame to match view bounds (accounts for safe area automatically)
+        loader.frame = view.bounds
         
-     
+        // Calculate center point in the loader's coordinate system (which matches view.bounds)
+        // This ensures the loader is centered at view.center position, accounting for safe area
+        let centerPoint = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+        loader.updateCenterPoint(centerPoint)
     }
 
       private func setUpViews() {
-          let frame1 = CGRect(x: midXValue - 15, y: midYValue - 15, width: 30, height: 30)
-          loader = CustomRingLoader(frame: .zero)
-          
-          //loader.center = view.center
+          // Initialize loader with view bounds to fill entire view
+          loader = CustomRingLoader(frame: view.bounds)
           view.addSubview(loader)
           favcenterLoader()
           // Start or stop animation as needed
@@ -117,3 +114,4 @@ class FavouriteViewController: UIViewController {
 //        return 100.0
 //    }
 //}
+
